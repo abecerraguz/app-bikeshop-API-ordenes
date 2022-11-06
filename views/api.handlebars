@@ -1,0 +1,86 @@
+{{> partials/navbar }}
+
+<div class="container">
+    <div class="row">
+      <div class="contenedor">
+         <h1 class="h4 my-5">{{> partials/title}}</h1>
+         <hr>
+         <p></p>
+        <div class="mb-4 text-white">
+            <h5>API por tiendas</h5>
+            <hr>
+            <p>Este endpoint contiene el nombre y el endpoint final a cada tienda</p>
+            <div class="alert alert-warning" role="alert">
+                <p><a href="https://app-shopbikes.herokuapp.com/api/v1/stores" title="APIv1-BikeShop" target="_blank">https://app-shopbikes.herokuapp.comapi/v1/stores</a></p>  
+                {{!-- <p><a href="https://app-shopbikes.herokuapp.com/stores" title="APIv1-BikeShop" target="_blank">https://app-shopbikes.herokuapp.com/stores</a></p>  --}}
+            </div>
+        </div>
+        <div class="mb-4 text-white">
+            <h5>Tienda Santa Cruz Bikes</h5>
+            <hr>
+            <p>Este endpoint contiene el id de la tienda, el nombre de la tienda, la categoría del producto, la marca del producto, el id del producto, el nombre del producto y el stock del producto en la tienda.</p>
+            <div class="alert alert-warning" role="alert">
+                <code class="color-white">
+                   [&#xA0;
+                    &nbsp;&nbsp;&nbsp;{&#xA0;
+                        &nbsp;&nbsp;&nbsp;&nbsp;"store_id": 1,&#xA0;
+                        &nbsp;&nbsp;&nbsp;&nbsp;"store_name": "Santa Cruz Bikes",&#xA0;
+                        &nbsp;&nbsp;&nbsp;&nbsp;"categoria": "Mountain Bikes",
+                        &nbsp;&nbsp;&nbsp;&nbsp;"marca": "Trek",
+                        &nbsp;&nbsp;&nbsp;&nbsp;"product_id": 1,
+                        &nbsp;&nbsp;&nbsp;&nbsp;"product_name": "Trek 820 - 2016",
+                        &nbsp;&nbsp;&nbsp;&nbsp;"quantity": 27
+                    &nbsp;&nbsp;&nbsp;}
+                    ]    
+                </code>
+                 <p><a href="https://app-shopbikes.herokuapp.com/api/v1/store/1" title="APIv1-BikeShop" target="_blank">https://app-shopbikes.herokuapp.com/api/v1/store/1</a></p> 
+                  {{!-- <p><a href="https://app-shopbikes.herokuapp.com/api/v1/store/1" title="APIv1-BikeShop" target="_blank">https://app-shopbikes.herokuapp.com/api/v1/store/1</a></p>          --}}
+            </div>
+        </div>
+        <div class="mb-4 text-white">
+            <h5>Tienda Baldwin Bikes</h5>
+            <hr>
+            <p>Este endpoint contiene el id de la tienda, el nombre de la tienda, la categoría del producto, la marca del producto, el id del producto, el nombre del producto y el stock del producto en la tienda.</p>
+            <div class="alert alert-warning" role="alert">
+                <code class="color-white">
+                   [
+                    &nbsp;&nbsp;&nbsp;{
+                        &nbsp;&nbsp;&nbsp;&nbsp;"store_id": 2,
+                        &nbsp;&nbsp;&nbsp;&nbsp;"store_name": "Baldwin Bikes",
+                        &nbsp;&nbsp;&nbsp;&nbsp;"categoria": "Mountain Bikes",
+                        &nbsp;&nbsp;&nbsp;&nbsp;"marca": "Ritchey",
+                        &nbsp;&nbsp;&nbsp;&nbsp;"product_id": 2,
+                        &nbsp;&nbsp;&nbsp;&nbsp;"product_name": "Ritchey Timberwolf Frameset - 2016"",
+                        &nbsp;&nbsp;&nbsp;&nbsp;"quantity": 16
+                    &nbsp;&nbsp;&nbsp;}
+                    ]    
+                </code>
+                <p><a href="https://app-shopbikes.herokuapp.com/api/v1/store/2" title="APIv1-BikeShop" target="_blank">https://app-shopbikes.herokuapp.comapi/v1/store/2</a></p>
+                {{!-- <p><a href="https://app-shopbikes.herokuapp.com/api/v1/store/2" title="APIv1-BikeShop" target="_blank">https://app-shopbikes.herokuapp.com/api/v1/store/2</a></p>       --}}
+            </div>
+        </div>
+        <div class="mb-4 text-white">
+            <h5>Tienda owlett Bikes</h5>
+            <hr>
+            <p>Este endpoint contiene el id de la tienda, el nombre de la tienda, la categoría del producto, la marca del producto, el id del producto, el nombre del producto y el stock del producto en la tienda.</p>
+            <div class="alert alert-warning" role="alert">
+                <code class="color-white">
+                   [
+                     &nbsp;&nbsp;&nbsp;{
+                        &nbsp;&nbsp;&nbsp;&nbsp;"store_id": 3,
+                        &nbsp;&nbsp;&nbsp;&nbsp;"store_name": "owlett Bikes",
+                        &nbsp;&nbsp;&nbsp;&nbsp;"categoria": "Mountain Bikes",
+                        &nbsp;&nbsp;&nbsp;&nbsp;"marca": "Ritchey",
+                        &nbsp;&nbsp;&nbsp;&nbsp;"product_id": 2,
+                        &nbsp;&nbsp;&nbsp;&nbsp;"product_name": "Ritchey Timberwolf Frameset - 2016",
+                        &nbsp;&nbsp;&nbsp;&nbsp;"quantity": 24
+                     &nbsp;&nbsp;&nbsp;}
+                    ]    
+                </code>
+                <p><a href="https://app-shopbikes.herokuapp.comapi/v1/store/3" title="APIv1-BikeShop" target="_blank">https://app-shopbikes.herokuapp.comapi/v1/store/3</a></p>     
+                {{!-- <p><a href="https://app-shopbikes.herokuapp.com/api/v1/store/3" title="APIv1-BikeShop" target="_blank">https://app-shopbikes.herokuapp.com/api/v1/store/2</a></p>  --}}
+            </div>
+        </div>
+      </div>
+    </div>   
+</div>
