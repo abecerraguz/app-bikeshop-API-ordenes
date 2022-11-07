@@ -68,7 +68,7 @@ const HATEOASV1 = async () =>{
     return salida  
 }
 
-// Ruta raiz
+// Ruta raizzzzzz
 app.get('/', ( req, res )=>{
     res.render("admin",{
         layout:"home",
