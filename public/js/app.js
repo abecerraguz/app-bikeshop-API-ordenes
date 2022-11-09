@@ -17,7 +17,8 @@ UI.dropdownToggle.addEventListener('click', (e)=>{
     password.value = ''
 })
 
-
+const key = process.env.BASE_URL;
+console.log('Salida de key--->', key);
 
 function toggle(el,classname){
     if(el.classList.contains(classname)){
