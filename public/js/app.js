@@ -1,6 +1,7 @@
 import * as UI from './utilities/interfaz.js'
 import printTable from './utilities/printTable.js';
 import { checkCelular, checkEmail, checkPassword, checkString } from './utilities/validacionForm.js'
+import config from './../config.json' assert {type: 'json'};
 // import logout from './utilities/logout.js';
 
 UI.loading.style.display = "none";
@@ -17,8 +18,7 @@ UI.dropdownToggle.addEventListener('click', (e)=>{
     password.value = ''
 })
 
-const key = process.env.BASE_URL;
-console.log('Salida de key--->', key);
+
 
 function toggle(el,classname){
     if(el.classList.contains(classname)){
@@ -172,7 +172,7 @@ UI.enviar.addEventListener('click', async(e)=>{
 })
 
 // Insert option de categoria 
-axios.get(`${process.env.BASE_URL}/categorias`)
+axios.get(`${config.BASE_URL}/categorias`)
 //axios.get('http://localhost:3000/categorias')
     .then( result =>{
         const categorias = result.data
@@ -182,7 +182,7 @@ axios.get(`${process.env.BASE_URL}/categorias`)
 })
 
 // Insert option tiendas
-axios.get(`${process.env.BASE_URL}/tiendas`)
+axios.get(`${config.BASE_URL}/tiendas`)
 //axios.get('http://localhost:3000/tiendas')
     .then( result =>{
         const tiendas = result.data
@@ -192,7 +192,7 @@ axios.get(`${process.env.BASE_URL}/tiendas`)
     })
 
 // Insert option marcas
-axios.get(`${process.env.BASE_URL}/marcas`)
+axios.get(`${config.BASE_URL}/marcas`)
 //axios.get('http://localhost:3000/marcas')
     .then( result =>{
         const marcas = result.data
@@ -204,7 +204,7 @@ axios.get(`${process.env.BASE_URL}/marcas`)
 UI.reset.addEventListener('click',(e)=>{
     e.preventDefault();
     //window.location.href = `https://app-shopbikes.herokuapp.com`
-    window.location.href = `${process.env.BASE_URL}`
+    window.location.href = `${config.BASE_URL}`
     //window.location.href = `http://localhost:3000`
 })
 
@@ -296,7 +296,7 @@ buttonRegistrarse.addEventListener("click",(e)=>{
     let password = passwordInput.value
 
     if( nombre && apellido && email && celular && password ){
-        axios.post(`${process.env.BASE_URL}/usuarios`, {
+        axios.post(`${config.BASE_URL}/usuarios`, {
         //axios.post('http://localhost:3000/usuarios', {
             nombre,
             apellido,
@@ -309,7 +309,7 @@ buttonRegistrarse.addEventListener("click",(e)=>{
                 $('#mensajeRegistrado').modal('toggle');
             setTimeout(()=>{
                 $('#mensajeRegistrado').modal('toggle');
-                location.href = `${process.env.BASE_URL}/login`
+                location.href = `${config.BASE_URL}/login`
                 //location.href = "http://localhost:3000/login"
             },5000)
         })

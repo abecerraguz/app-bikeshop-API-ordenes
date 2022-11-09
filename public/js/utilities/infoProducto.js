@@ -1,5 +1,6 @@
 import * as UI from './interfaz.js';
-import replaceQuotes from './replaceQuotes.js'
+import replaceQuotes from './replaceQuotes.js';
+import config from './../../config.json' assert {type: 'json'};
 
 const infoProducto = ( store_name , product_id, product_name, quantity )=>{
     $('#mensajesModal').modal('toggle');
@@ -18,7 +19,7 @@ const editProducto = ( store_name , product_id, product_name, quantity, year, pr
 const putProduct = ()=>{
     // https://app-shopbikes.herokuapp.com/
     // https://app-shopbikes.herokuapp.com
-    axios.get(`${process.env.BASE_URL}/producto`)
+    axios.get(`${config.BASE_URL}/producto`)
     .then( result =>{
         const marcas = result.data
         // console.log('Salida de marcas--->', marcas)

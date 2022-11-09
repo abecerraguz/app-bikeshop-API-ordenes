@@ -1,7 +1,9 @@
-import * as UI from './utilities/interfaz.js'
-import { setupTimers } from './utilities/inactiveSesion.js'
-import {editProducto} from './utilities/infoProducto.js'
-import replaceQuotes from './utilities/replaceQuotes.js'
+import * as UI from './utilities/interfaz.js';
+import { setupTimers } from './utilities/inactiveSesion.js';
+import {editProducto} from './utilities/infoProducto.js';
+import replaceQuotes from './utilities/replaceQuotes.js';
+import config from './../config.json' assert {type: 'json'};
+
 UI.loading.style.display = "none";
 UI.alertDangerCategory.style.display = "none";
 UI.alertDangerBrand.style.display = "none";
@@ -23,7 +25,7 @@ infoButton.forEach( element => {
         const email = e.target.name
         // axios.post('https://app-shopbikes.herokuapp.com/user',{
         //axios.post('http://localhost:3000/user',{
-        axios.post(`${process.env.BASE_URL}/user`,{
+        axios.post(`${config.BASE_URL}/user`,{
            
          email   
         })
@@ -70,12 +72,12 @@ infoButton.forEach( element => {
                 if( selectCategoria != -1 && brandNameSelect != -1){
                     //axios.put('https://app-shopbikes.herokuapp.com/stock',{
                     //axios.put('http:/localhost:3000/stock',{
-                    axios.put(`${process.env.BASE_URL}/stock`,{
+                    axios.put(`${config.BASE_URL}/stock`,{
                         idTienda,
                         infoId,
                         quantity
                     })
-                    axios.put(`${process.env.BASE_URL}/producto`,{
+                    axios.put(`${config.BASE_URL}/producto`,{
                     //axios.put('http://localhost:3000/producto',{
                         infoId,
                         nombreProducto,
@@ -116,7 +118,7 @@ infoButton.forEach( element => {
 // Insert option categorias
 //axios.get('https://app-shopbikes.herokuapp.comcategorias')
 //https://app-shopbikes.herokuapp.com/
-axios.get(`${process.env.BASE_URL}/categorias`)
+axios.get(`${config.BASE_URL}/categorias`)
     .then( result =>{
         const categorias = result.data
         categorias.forEach( element => {
@@ -127,7 +129,7 @@ axios.get(`${process.env.BASE_URL}/categorias`)
 // Insert option marcas
 //axios.get('https://app-shopbikes.herokuapp.commarcas')
 // https://app-shopbikes.herokuapp.com/
-axios.get(`${process.env.BASE_URL}/marcas`)
+axios.get(`${config.BASE_URL}/marcas`)
     .then( result =>{
         const marcas = result.data
         marcas.forEach( element => {

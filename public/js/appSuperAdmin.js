@@ -1,7 +1,7 @@
 
 import * as UI from './utilities/interfaz.js'
 import { checkCelular, checkEmail, checkPassword, checkString } from './utilities/validacionForm.js'
-
+import config from './../config.json' assert {type: 'json'};
 document.querySelector('.contentSpinnerLoading').style.display = 'none'
 const inputCheck = document.querySelectorAll('#infoTable tr td input')
 let addUser = document.querySelector('#addUser')
@@ -30,7 +30,7 @@ const changeStatus = async( e ) => {
     let id   = e.id
     //await axios.put("https://app-shopbikes.herokuapp.com/usuario",{
     //await axios.put("http://localhost:3000/usuario",{
-        await axios.put(`${process.env.BASE_URL}/usuario`,{
+        await axios.put(`${config.BASE_URL}/usuario`,{
         id,
         auth
     })
@@ -45,7 +45,7 @@ infoButton.forEach( element => {
             const email = e.target.name
             // axios.get('https://app-shopbikes.herokuapp.com/getstaffs')
             //axios.get('http://localhost:3000/getstaffs')
-            axios.get(`${process.env.BASE_URL}/getstaffs`)
+            axios.get(`${config.BASE_URL}/getstaffs`)
             
             .then(result =>{
                 const dataUsers = result.data
@@ -209,7 +209,7 @@ buttonRegistrarse.addEventListener("click",(e)=>{
     if( nombre && apellido && email && celular && password ){
         //axios.post('https://app-shopbikes.herokuapp.com/usuarios', {
         //axios.post('http://localhost:3000/usuarios', {
-        axios.post(`${process.env.BASE_URL}/usuarios`, {
+        axios.post(`${config.BASE_URL}/usuarios`, {
             nombre,
             apellido,
             email,
@@ -264,7 +264,7 @@ eliminarButton.forEach( element => {
                     text: 'El archivo ha sido borrado'
                 })
                 console.log('XXXXX',idFinal)
-                axios.delete(`${process.env.BASE_URL}/usuario/${idFinal}`)
+                axios.delete(`${config.BASE_URL}/usuario/${idFinal}`)
                 //axios.delete(`http://localhost:3000/usuario/${idFinal}`)
                     .then( result =>{
                         console.log('Salida de result',result)

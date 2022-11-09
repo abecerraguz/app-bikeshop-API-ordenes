@@ -1,18 +1,18 @@
 import * as UI from './interfaz.js'
 import { infoProducto } from './infoProducto.js';
 import replaceQuotes from './replaceQuotes.js';
-
+import config from './../../config.json' assert {type: 'json'};
 
 const printTable = async ( category_id, store_id, brand_name ) => {
     UI.loading.style.display = "flex";
   
-    await axios.post(`${process.env.BASE_URL}/ordenes`,{
+    await axios.post(`${config.BASE_URL}/ordenes`,{
     //await axios.post('http://localhost:3000/ordenes',{
         category_id,
         store_id,
         brand_name
     })
-    await axios.get(`${process.env.BASE_URL}/ordenes`)
+    await axios.get(`${config.BASE_URL}/ordenes`)
         .then( result => {
             const info = result.data
             if(info.length != 0){
