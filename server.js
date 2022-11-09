@@ -24,6 +24,14 @@ import { getUsuario,
     
 import axios from 'axios';
 import { send } from './utils/send.js';
+
+import dotenv from 'dotenv'
+dotenv.config()
+    
+
+
+
+
 const __filename = fileURLToPath( import.meta.url )
 const __dirname = dirname( __filename )
 const secretKey = "claveSecreta";
@@ -64,6 +72,7 @@ app.set("view engine","handlebars");
 
 const HATEOASV1 = async () =>{
     //const salida = await axios.get(`https://app-shopbikes.herokuapp.com/stores`)
+    console.log('Salida de entorno', process.env.BASE_URL)
     const salida = await axios.get(`${process.env.BASE_URL}/stores`)
     return salida  
 }
@@ -139,7 +148,7 @@ app.get('/api/v1/stores',(req,res)=>{
             const dataFiltrada = rest.map(element => {
                 return {
                     store_name:element.store_name,
-                    //src:`https://app-shopbikes.herokuapp.com/api/v1/store/${element.store_id}`,
+                    //src:`http://localhost:3000/api/v1/store/${element.store_id}`,
                     src:`${process.env.BASE_URL}/${element.store_id}`,
                 }
             })

@@ -1,5 +1,8 @@
 import pg from 'pg';
+import dotenv from 'dotenv'
+dotenv.config()
 const { Pool } = pg;
+
 
 const pool = new Pool({
     // Conección para produccion pero para local o Local
