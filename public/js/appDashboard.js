@@ -21,8 +21,10 @@ infoButton.forEach( element => {
         e.preventDefault();
         const infoId = e.target.id
         const email = e.target.name
-        axios.post('https://app-shopbikes.herokuapp.com/user',{
+        // axios.post('https://app-shopbikes.herokuapp.com/user',{
         //axios.post('http://localhost:3000/user',{
+        axios.post(`${process.env.BASE_URL}/user`,{
+           
          email   
         })
         .then( result =>{
@@ -66,13 +68,14 @@ infoButton.forEach( element => {
                 })
             
                 if( selectCategoria != -1 && brandNameSelect != -1){
-                    axios.put('https://app-shopbikes.herokuapp.com/stock',{
+                    //axios.put('https://app-shopbikes.herokuapp.com/stock',{
                     //axios.put('http:/localhost:3000/stock',{
+                    axios.put(`${process.env.BASE_URL}/stock`,{
                         idTienda,
                         infoId,
                         quantity
                     })
-                    axios.put('https://app-shopbikes.herokuapp.com/producto',{
+                    axios.put(`${process.env.BASE_URL}/producto`,{
                     //axios.put('http://localhost:3000/producto',{
                         infoId,
                         nombreProducto,
@@ -113,7 +116,7 @@ infoButton.forEach( element => {
 // Insert option categorias
 //axios.get('https://app-shopbikes.herokuapp.comcategorias')
 //https://app-shopbikes.herokuapp.com/
-axios.get('https://app-shopbikes.herokuapp.com/categorias')
+axios.get(`${process.env.BASE_URL}/categorias`)
     .then( result =>{
         const categorias = result.data
         categorias.forEach( element => {
@@ -124,7 +127,7 @@ axios.get('https://app-shopbikes.herokuapp.com/categorias')
 // Insert option marcas
 //axios.get('https://app-shopbikes.herokuapp.commarcas')
 // https://app-shopbikes.herokuapp.com/
-axios.get('https://app-shopbikes.herokuapp.com/marcas')
+axios.get(`${process.env.BASE_URL}/marcas`)
     .then( result =>{
         const marcas = result.data
         marcas.forEach( element => {

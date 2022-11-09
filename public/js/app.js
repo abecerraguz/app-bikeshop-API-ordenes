@@ -171,7 +171,7 @@ UI.enviar.addEventListener('click', async(e)=>{
 })
 
 // Insert option de categoria 
-axios.get('https://app-shopbikes.herokuapp.com/categorias')
+axios.get(`${process.env.BASE_URL}/categorias`)
 //axios.get('http://localhost:3000/categorias')
     .then( result =>{
         const categorias = result.data
@@ -181,7 +181,7 @@ axios.get('https://app-shopbikes.herokuapp.com/categorias')
 })
 
 // Insert option tiendas
-axios.get('https://app-shopbikes.herokuapp.com/tiendas')
+axios.get(`${process.env.BASE_URL}/tiendas`)
 //axios.get('http://localhost:3000/tiendas')
     .then( result =>{
         const tiendas = result.data
@@ -191,7 +191,7 @@ axios.get('https://app-shopbikes.herokuapp.com/tiendas')
     })
 
 // Insert option marcas
-axios.get('https://app-shopbikes.herokuapp.com/marcas')
+axios.get(`${process.env.BASE_URL}/marcas`)
 //axios.get('http://localhost:3000/marcas')
     .then( result =>{
         const marcas = result.data
@@ -203,7 +203,7 @@ axios.get('https://app-shopbikes.herokuapp.com/marcas')
 UI.reset.addEventListener('click',(e)=>{
     e.preventDefault();
     //window.location.href = `https://app-shopbikes.herokuapp.com`
-    window.location.href = `https://app-shopbikes.herokuapp.com`
+    window.location.href = `${process.env.BASE_URL}`
     //window.location.href = `http://localhost:3000`
 })
 
@@ -295,7 +295,7 @@ buttonRegistrarse.addEventListener("click",(e)=>{
     let password = passwordInput.value
 
     if( nombre && apellido && email && celular && password ){
-        axios.post('https://app-shopbikes.herokuapp.com/usuarios', {
+        axios.post(`${process.env.BASE_URL}/usuarios`, {
         //axios.post('http://localhost:3000/usuarios', {
             nombre,
             apellido,
@@ -308,7 +308,7 @@ buttonRegistrarse.addEventListener("click",(e)=>{
                 $('#mensajeRegistrado').modal('toggle');
             setTimeout(()=>{
                 $('#mensajeRegistrado').modal('toggle');
-                location.href = "https://app-shopbikes.herokuapp.com/login"
+                location.href = `${process.env.BASE_URL}/login`
                 //location.href = "http://localhost:3000/login"
             },5000)
         })

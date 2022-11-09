@@ -18,7 +18,7 @@ const editProducto = ( store_name , product_id, product_name, quantity, year, pr
 const putProduct = ()=>{
     // https://app-shopbikes.herokuapp.com/
     // https://app-shopbikes.herokuapp.com
-    axios.get('https://app-shopbikes.herokuapp.com/producto')
+    axios.get(`${process.env.BASE_URL}/producto`)
     .then( result =>{
         const marcas = result.data
         // console.log('Salida de marcas--->', marcas)
