@@ -118,17 +118,12 @@ const verificacion = ()=>{
             password
         }).then( result =>{
 
-            console.log('Salida XC--->', result.config.data )
             const admin = JSON.parse(result.config.data)
             const token = result.data
             
             $('#mensajeLogin').modal('toggle');
             sessionStorage.setItem('token', JSON.stringify(token) )
             
-            console.log( 'Salida de admin === Adm@123456--->', admin === 'Adm@123456' )
-            console.log( 'Salida de admin--->', admin  )
-            console.log( 'Salida de admin.password--->', admin.password  )
-            console.log('Salida de token--->', token )
 
             if( admin.password === 'Adm@123456'){
                 console.log('Entreeeee')
@@ -174,6 +169,7 @@ UI.enviar.addEventListener('click', async(e)=>{
 // Insert option de categoria 
 axios.get(`${config.BASE_URL}/categorias`)
 //axios.get('http://localhost:3000/categorias')
+
     .then( result =>{
         const categorias = result.data
         categorias.forEach( element => {

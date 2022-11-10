@@ -7,12 +7,10 @@ const printTable = async ( category_id, store_id, brand_name ) => {
     UI.loading.style.display = "flex";
   
     await axios.post(`${config.BASE_URL}/ordenes`,{
-    //await axios.post('http://localhost:3000/ordenes',{
         category_id,
         store_id,
         brand_name
     })
-    // await axios.get(`${config.BASE_URL}/ordenes`)
         .then( result => {
             const info = result.data
             console.log('Salida de info--->', info )
