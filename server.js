@@ -29,9 +29,6 @@ import dotenv from 'dotenv'
 dotenv.config()
     
 
-
-
-
 const __filename = fileURLToPath( import.meta.url )
 const __dirname = dirname( __filename )
 const secretKey = "claveSecreta";
@@ -71,13 +68,11 @@ app.set("view engine","handlebars");
 
 
 const HATEOASV1 = async () =>{
-    //const salida = await axios.get(`https://app-shopbikes.herokuapp.com/stores`)
-    console.log('Salida de entorno', process.env.BASE_URL)
     const salida = await axios.get(`${process.env.BASE_URL}/stores`)
     return salida  
 }
 
-// Ruta raizzzzzz
+// Ruta raiz
 app.get('/', ( req, res )=>{
     res.render("admin",{
         layout:"home",
@@ -137,7 +132,6 @@ app.get('/marcas', async(req,res)=>{
 
 app.get('/stores', async(req,res)=>{
     const stores = await getStores();
-    // console.log('Salida de stores-->', stores)
     res.send(stores)
 })
 
@@ -148,7 +142,6 @@ app.get('/api/v1/stores',(req,res)=>{
             const dataFiltrada = rest.map(element => {
                 return {
                     store_name:element.store_name,
-                    //src:`http://localhost:3000/api/v1/store/${element.store_id}`,
                     src:`${process.env.BASE_URL}/api/v1/store/${element.store_id}`,
                 }
             })
@@ -175,7 +168,7 @@ app.get("/api/v1/store/:id", (req,res)=>{
 
 // ACCESO LOGIN
 app.post("/verify", async ( req,res ) =>{
-    // Primero cecuperamos los datos enviados desde el Fron o sea Login
+    // Primero Recuperamos los datos enviados desde el Fron o sea Login
     const { email, password } = req.body;
     console.log('Salida de email y password-->',  email, password)
     const user = await getUsuario( email, password );
@@ -211,7 +204,6 @@ app.post("/verify", async ( req,res ) =>{
 app.get('/admin', (req,res) => {
 
     const { token } = req.query
-    // eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2NTkxOTI0MzEsImRhdGEiOnsiaWQiOjIxLCJlbWFpbCI6ImdhYnJpZWxhNzNAZ21haWwuY29tIiwibm9tYnJlIjoiR2FicmllbGEiLCJwYXNzd29yZCI6IjEyMzQiLCJhdXRoIjp0cnVlfSwiaWF0IjoxNjU5MTkyMzExfQ.K5u8S0N6uFHbXW0lhtOYLHLHLVgrgG2iwQK6nAuEe3g
     jwt.verify( token, secretKey, async( err, decoded )=>{
 
         if(err){
@@ -225,10 +217,7 @@ app.get('/admin', (req,res) => {
             res.redirect('/')
 
         }else{
-
             const dataUser = await getDataUser( decoded.data.email );
-    
-            console.log('Salida dataUser-->',dataUser)
             res.render("dashboard",{
                 layout:"home",
                 title:`Bienvenid@ ${decoded.data.first_name}`,
@@ -243,9 +232,7 @@ app.get('/admin', (req,res) => {
 })
 
 app.get('/superadmin', (req,res) => {
-
     const { token } = req.query
-    // eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2NTkxOTI0MzEsImRhdGEiOnsiaWQiOjIxLCJlbWFpbCI6ImdhYnJpZWxhNzNAZ21haWwuY29tIiwibm9tYnJlIjoiR2FicmllbGEiLCJwYXNzd29yZCI6IjEyMzQiLCJhdXRoIjp0cnVlfSwiaWF0IjoxNjU5MTkyMzExfQ.K5u8S0N6uFHbXW0lhtOYLHLHLVgrgG2iwQK6nAuEe3g
     jwt.verify( token, secretKey, async( err, decoded )=>{
 
         if(err){
