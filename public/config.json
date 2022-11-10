@@ -1,4 +1,5 @@
 {
-    "BASE_URL": "https://app-bikeshop-api-ordenes-production.up.railway.app"
-    
+    "BASE_URL": "https://app-bikeshop-api-ordenes-production.up.railway.app",
+    "//BASE_URL": "http://localhost:3000"
 }
+
