@@ -149,7 +149,7 @@ app.get('/api/v1/stores',(req,res)=>{
                 return {
                     store_name:element.store_name,
                     //src:`http://localhost:3000/api/v1/store/${element.store_id}`,
-                    src:`${process.env.BASE_URL}/${element.store_id}`,
+                    src:`${process.env.BASE_URL}/api/v1/store/${element.store_id}`,
                 }
             })
             
