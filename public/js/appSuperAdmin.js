@@ -57,7 +57,7 @@ infoButton.forEach( element => {
                 document.querySelector('#celular').value = dataUser.phone
                 document.querySelector('#selectTienda').value = dataUser.store_id
                 document.querySelector('#selectActive').value = dataUser.active
-                document.querySelector('#password').value = dataUser._password
+                document.querySelector('#password').value = ''
                 document.querySelector('#mensajesModal .modal-body form button.editar').setAttribute( 'id', dataUser.staff_id );
                 let infoTienda = document.querySelector('#mensajesModal .modal-header h5')
                 console.log(infoTienda)
