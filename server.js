@@ -36,7 +36,7 @@ const secretKey = "claveSecreta";
 const app = express();
 console.clear()
 
-// Definimos nuestros Meddleware
+// Definimos nuestros Meddleware de la APP
 app.use(express.static('public'));
 app.use('/img',express.static(  `${__dirname}/img`  ));
 app.use('/css',express.static(  `${__dirname}/css`  ));
