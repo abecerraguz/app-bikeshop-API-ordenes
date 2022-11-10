@@ -12,9 +12,10 @@ const printTable = async ( category_id, store_id, brand_name ) => {
         store_id,
         brand_name
     })
-    await axios.get(`${config.BASE_URL}/ordenes`)
+    // await axios.get(`${config.BASE_URL}/ordenes`)
         .then( result => {
             const info = result.data
+            console.log('Salida de info--->', info )
             if(info.length != 0){
                 UI.infoTable.innerHTML=``
                 info.forEach(element =>{
