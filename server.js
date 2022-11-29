@@ -265,7 +265,7 @@ app.get('/superadmin', (req,res) => {
     })
 })
 
-// Ruta que edita el estado de autorización de acceso
+// Ruta que edita el estado de autorización de accesoo
 app.put('/usuario', async (req,res)=>{
 
     const { id ,auth } = req.body
