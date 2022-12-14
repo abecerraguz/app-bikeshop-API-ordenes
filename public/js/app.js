@@ -34,6 +34,10 @@ UI.linkShowLink.addEventListener('click', (e)=>{
     toggle(UI.divForm, 'hidden')
 })
 
+UI.divForm.addEventListener('blur', (e)=>{
+    console.log('Estoy Fuera')
+})
+
 // INICIO MANEJO DEL TAB LOGIN Y REGISTRARSE
 let opciones = document.querySelectorAll('#divForm ul li a');
 
