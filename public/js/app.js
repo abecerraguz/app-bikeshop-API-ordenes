@@ -34,7 +34,7 @@ UI.linkShowLink.addEventListener('click', (e)=>{
     toggle(UI.divForm, 'hidden')
 })
 
-UI.divForm.addEventListener('blur', (e)=>{
+UI.divForm.addEventListener('click', (e)=>{
     console.log('Estoy Fuera')
 })
 
