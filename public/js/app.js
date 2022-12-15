@@ -34,7 +34,7 @@ UI.linkShowLink.addEventListener('click', (e)=>{
     toggle(UI.divForm, 'hidden')
 })
 
-UI.divForm.addEventListener('mouseover', (e)=>{
+UI.divForm.addEventListener('mouseout', (e)=>{
     console.log('Estoy Fuera')
     toggle(UI.divForm, 'hidden')
 })
