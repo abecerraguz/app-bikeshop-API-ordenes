@@ -34,10 +34,10 @@ UI.linkShowLink.addEventListener('click', (e)=>{
     toggle(UI.divForm, 'hidden')
 })
 
-// UI.divForm.addEventListener('mouseout', (e)=>{
-//     console.log('Estoy Fuera')
-//     toggle(UI.divForm, 'hidden')
-// })
+UI.divForm.addEventListener('mouseout', (e)=>{
+    console.log('Estoy Fuera')
+    toggle(UI.divForm, 'hidden')
+})
 
 // INICIO MANEJO DEL TAB LOGIN Y REGISTRARSE
 let opciones = document.querySelectorAll('#divForm ul li a');
